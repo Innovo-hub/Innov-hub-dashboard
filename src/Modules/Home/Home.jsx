@@ -12,11 +12,11 @@ const dummyData = [
 const Home = () => {
   return (
     <div >
-      <Breadcrumbs aria-label="breadcrumb" className="mb-4">
-        <Link component={RouterLink} to="/" underline="hover" color="inherit">
+      <Breadcrumbs aria-label="breadcrumb" className="mb-4" color="primary">
+        <Link component={RouterLink} to="/" underline="hover" >
           Dashboard
         </Link>
-        <Link component={RouterLink} to="/" underline="hover" color="inherit">
+        <Link component={RouterLink} to="/" underline="hover" >
           Overview
         </Link>
       </Breadcrumbs>

@@ -29,7 +29,7 @@ import {
       <div className="min-h-screen bg-[--color-main] flex items-center justify-center px-4">
         <div className="bg-white rounded-2xl shadow-lg w-full max-w-md p-8">
           <h2 className="text-2xl font-bold text-[--color-main] text-center mb-6">
-            Login to Hobby Station Dashboard
+            Login to Innova Hub Dashboard
           </h2>
   
           {error && <Alert severity="error" className="mb-4">{error}</Alert>}

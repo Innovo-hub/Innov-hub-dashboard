@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllUsers } from '../../redux/Apis/Users/getAllusers';
 import UserTable from './Users-Components/UsersTable';
-import Loading from '../../Components/Shared/Loader/Loading';
-
+import Loading from '../../Components/Shared/Loader/Loading'
+import { Breadcrumbs, Link } from '@mui/material';
+import { Link as RouterLink } from "react-router-dom";
 
 function Users() {
   const dispatch = useDispatch();
@@ -22,11 +23,19 @@ function Users() {
   };
 
   const filteredUsers = allUsers?.filter((user) =>
-    user?.Name?.toLowerCase().includes(searchTerm.toLowerCase())
+    user?.Email?.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
     <div className="p-4">
+         <Breadcrumbs aria-label="breadcrumb" className="mb-4" color="primary">
+                <Link component={RouterLink} to="/" underline="hover" >
+                  Dashboard
+                </Link>
+                <Link component={RouterLink} to="/users" underline="hover" >
+                  Users
+                </Link>
+              </Breadcrumbs>
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-main text-2xl">All Users</h2>
         <input
@@ -39,7 +48,7 @@ function Users() {
 
       {usersLoading ? (
         <div className="flex justify-center items-center">
-            <Loading/>
+            <Loading />
         </div>
       ) : usersError ? (
         <p className="text-red-500">Error: {usersError}</p>
