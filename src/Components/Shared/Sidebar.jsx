@@ -110,14 +110,14 @@ export default function Sidebar() {
               edge="start"
               sx={{ mr: 2, ...(open && { display: "none" }) }}
             >
-              <MenuIcon />
+              <MenuIcon sx={{color:theme.palette.text.secondary}}/>
             </IconButton>
-            <Typography variant="h6" noWrap>
+            <Typography variant="h6" noWrap sx={{color:theme.palette.text.secondary}}>
               Innova Hub Dashboard
             </Typography>
           </Box>
           <Box>
-            <IconButton onClick={handleMenuOpen} color="inherit">
+            <IconButton onClick={handleMenuOpen}  sx={{color:theme.palette.text.secondary}}>
               <Avatar sx={{ width: 32, height: 32 }} />
             </IconButton>
             <Menu
