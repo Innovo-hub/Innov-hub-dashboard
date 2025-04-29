@@ -80,7 +80,7 @@ const Home = () => {
   });
 
   return (
-    <div className="px-4 sm:px-8 md:px-8 lg:px-8">
+    <div className="px-2 lg:px-8">
       <Breadcrumbs aria-label="breadcrumb" className="mb-4" color="primary">
         <Link component={RouterLink} to="/" underline="hover">
           Dashboard
