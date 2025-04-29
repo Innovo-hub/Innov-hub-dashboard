@@ -91,15 +91,15 @@ const Home = () => {
       </Breadcrumbs>
 
       {/* Header Section */}
-      <div className="bg-gradient-to-r from-main to-indigo-200 p-6 rounded-xl my-6 shadow-md flex flex-col md:flex-row justify-between items-center">
+      <div className="bg-main p-6 rounded-xl my-6 shadow-md flex flex-col md:flex-row justify-between items-center">
         <div className="mb-4 md:mb-0">
           <h1 className="text-2xl font-bold text-white">
             Welcome to the Dashboard
           </h1>
           <p className="text-sm text-[#eee]">{formattedDate}</p>
         </div>
-        <div className="text-xl flex justify-center items-center gap-2 font-mono text-gray-700">
-          <CiClock1 size={20}/> {formattedTime}
+        <div className="text-xl flex justify-center items-center gap-2 font-mono text-white">
+          <CiClock1 size={20} /> {formattedTime}
         </div>
       </div>
 
@@ -119,6 +119,34 @@ const Home = () => {
           ))}
         </div>
       )}
+      <div className="flex flex-col">
+        <h2 className="">Speed Access : </h2>
+        <ul>
+          <RouterLink to="/products" className="text-blue-500">
+            Products
+          </RouterLink>
+          <li>
+            <RouterLink to="/users" className="text-blue-500">
+              Users
+            </RouterLink>
+          </li>
+          <li>
+            <RouterLink to="/deals" className="text-blue-500">
+              Deals
+            </RouterLink>
+          </li>
+          <li>
+            <RouterLink to="/reports" className="text-blue-500">
+              Reports
+            </RouterLink>
+          </li>
+          <li>
+            <RouterLink to="/verifications" className="text-blue-500">
+              verifications
+            </RouterLink>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };
