@@ -9,11 +9,10 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import Alert from "@mui/material/Alert";
-import { useNavigate } from "react-router-dom";
 
-function ProductTable({ products, totalProducts, page, setPage, limit, setLimit }) {
+function ReportTable({ reports, totalReports, page, setPage, limit, setLimit }) {
   const theme = useTheme();
-  const navigate = useNavigate();
+
   const handleChangePage = (event, newPage) => {
     setPage(newPage + 1);
   };
@@ -23,18 +22,14 @@ function ProductTable({ products, totalProducts, page, setPage, limit, setLimit 
     setPage(1);
   };
 
-  const handleProductNavigate = (id) => {
-    navigate(`/product/${id}`);
-  };
-
   return (
     <Paper sx={{ width: "100%", overflowX: "auto" }}>
-      {products.length === 0 ? (
-        <Alert severity="warning">No products found.</Alert>
+      {reports.length === 0 ? (
+        <Alert severity="warning">No reports found.</Alert>
       ) : (
         <>
           <TableContainer>
-            <Table sx={{ minWidth: 1000 }} aria-label="products table">
+            <Table sx={{ minWidth: 1000 }} aria-label="reports table">
               <TableHead>
                 <TableRow
                   sx={{
@@ -46,15 +41,14 @@ function ProductTable({ products, totalProducts, page, setPage, limit, setLimit 
                 >
                   {[
                     "ID",
-                    "Name",
-                    "Author",
-                    "Description",
-                    "Category",
-                    "Sizes",
-                    "Colors",
-                    "Dimensions",
-                    "Price",
-                    "Stock"
+                    "Reporter Name",
+                    "Reporter ID",
+                    "Reported Type",
+                    "Message",
+                    "Created At",
+                    "Reported User",
+                    "Reported Deal",
+                    "Reported Product"
                   ].map((label) => (
                     <TableCell
                       key={label}
@@ -69,23 +63,17 @@ function ProductTable({ products, totalProducts, page, setPage, limit, setLimit 
                 </TableRow>
               </TableHead>
               <TableBody>
-                {products.map((product,id) => (
-                  <TableRow
-                    key={product.ProductId}
-                    sx={{ cursor: "pointer" }}
-                    onClick={() => handleProductNavigate(product.ProductId)}
-                  >
-                    <TableCell>{id +1}</TableCell>
-                    <TableCell>{product.ProductName}</TableCell>
-                    <TableCell>{product.ProductAuthorName}</TableCell>
-                    <TableCell>{product.ProductDescription}</TableCell>
-                    <TableCell>{product.Category}</TableCell>
-                    <TableCell>{product.ProductSizes.join(", ")}</TableCell>
-                    <TableCell>{product.ProductColors.join(", ")}</TableCell>
-                    <TableCell>{product.Dimensions}</TableCell>
-                    <TableCell>{product.ProductPrice}</TableCell>
-                    <TableCell>{product.ProductStock}</TableCell>
-                    {/* <TableCell>{product.ApprovedAt}</TableCell> */}
+                {reports.map((report, id) => (
+                  <TableRow key={report.ReportId}>
+                    <TableCell>{id + 1}</TableCell>
+                    <TableCell>{report.ReporterName}</TableCell>
+                    <TableCell>{report.ReporterId}</TableCell>
+                    <TableCell>{report.ReportedType}</TableCell>
+                    <TableCell>{report.Message}</TableCell>
+                    <TableCell>{new Date(report.CreatedAt).toLocaleString()}</TableCell>
+                    <TableCell>{report.ReportedUser ? JSON.stringify(report.ReportedUser) : "N/A"}</TableCell>
+                    <TableCell>{report.ReportedDeal ? JSON.stringify(report.ReportedDeal) : "N/A"}</TableCell>
+                    <TableCell>{report.ReportedProduct ? JSON.stringify(report.ReportedProduct) : "N/A"}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
@@ -94,7 +82,7 @@ function ProductTable({ products, totalProducts, page, setPage, limit, setLimit 
           <TablePagination
             rowsPerPageOptions={[5, 10, 25]}
             component="div"
-            count={totalProducts || 0}
+            count={totalReports || 0}
             rowsPerPage={limit}
             page={page - 1}
             onPageChange={handleChangePage}
@@ -106,4 +94,4 @@ function ProductTable({ products, totalProducts, page, setPage, limit, setLimit 
   );
 }
 
-export default ProductTable;
+export default ReportTable;
