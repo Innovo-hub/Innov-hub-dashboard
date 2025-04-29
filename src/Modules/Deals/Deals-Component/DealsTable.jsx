@@ -9,9 +9,27 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Alert from "@mui/material/Alert";
 import { CiCircleCheck } from "react-icons/ci";
+import axios from "axios";
+import toast from "react-hot-toast";
 function DealTable({ deals }) {
   const theme = useTheme();
-
+  const handleAcceptDeal =async (dealId) => {
+    const toastId = toast.loading("Accepting deal...");
+    try {
+       const response = await axios.post(`${import.meta.env.VITE_BASEURL}/api/Dashboard/PublishDeal/${dealId}`, null, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "Content-Type": "application/json",
+        },
+      });
+      toast.success("Deal accepted successfully", {
+        id: toastId,
+      });
+      window.location.reload();
+    } catch (error) {
+      toast.error("error accepting deal",{ id: toastId });
+    }
+  }
   return (
     <Paper sx={{ width: "100%", overflowX: "auto" }}>
       {deals.length === 0 ? (
@@ -63,7 +81,7 @@ function DealTable({ deals }) {
                   <TableCell>{deal.CategoryName}</TableCell>
                   <TableCell>{deal.OfferMoney}</TableCell>
                   <TableCell>{deal.ApprovedAt}</TableCell>
-                  <TableCell><CiCircleCheck color="green" cursor='pointer' size='20'/></TableCell>
+                  <TableCell><CiCircleCheck color="green" cursor='pointer' size='20' onClick={()=>{handleAcceptDeal(deal.Id)}}/></TableCell>
                 </TableRow>
               ))}
             </TableBody>
