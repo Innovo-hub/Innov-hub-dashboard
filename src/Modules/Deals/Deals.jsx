@@ -22,7 +22,7 @@ function Deals() {
   };
 
   return (
-    <div className="p-4">
+    <div className="lg:p-4 p-1">
       <Breadcrumbs aria-label="breadcrumb" className="mb-4" color="primary">
         <Link component={RouterLink} to="/" underline="hover">
           Dashboard

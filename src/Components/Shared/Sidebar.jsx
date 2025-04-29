@@ -24,6 +24,7 @@ import {
   CiUser,
   CiViewList,
 } from "react-icons/ci";
+import { GoVerified } from "react-icons/go";
 import { useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
@@ -78,6 +79,7 @@ const menuItems = [
   { text: "Users", icon: <CiUser size={24} />, route: "/users" },
   { text: "Deals", icon: <CiDiscount1 size={24} />, route: "/deals" },
   { text: "Reports", icon: <CiViewList size={24} />, route: "/reports" },
+  { text: "Verifications", icon: <GoVerified size={24} />, route: "/verifications" },
 ];
 
 export default function Sidebar() {
@@ -118,7 +120,7 @@ export default function Sidebar() {
           </Box>
           <Box>
             <IconButton onClick={handleMenuOpen}  sx={{color:theme.palette.text.secondary}}>
-              <Avatar sx={{ width: 32, height: 32 }} />
+              <Avatar variant="rounded" sx={{ width: 42, height: 42 }} src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
             </IconButton>
             <Menu
               anchorEl={anchorEl}

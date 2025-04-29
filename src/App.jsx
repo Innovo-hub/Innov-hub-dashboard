@@ -7,6 +7,8 @@ import Login from "./Modules/Auth/Login";
 import Users from "./Modules/Users/Users";
 import Products from "./Modules/Products/Products";
 import Deals from "./Modules/Deals/Deals";
+import Reports from "./Modules/Reports/Reports";
+import Verifications from "./Modules/Verifications/Verifications";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -26,6 +28,8 @@ function App() {
               <Route path="/products" element={<Products />} />
               <Route path="/users" element={<Users />} />
               <Route path="/deals" element={<Deals />} />
+              <Route path="/reports" element={<Reports/>}/>
+              <Route path="/verifications" element={<Verifications/>}/>
             </Routes>
           </Main>
         </Box>

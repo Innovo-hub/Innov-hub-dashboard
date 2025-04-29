@@ -2,9 +2,9 @@ import { Breadcrumbs, Link } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link as RouterLink } from "react-router-dom";
-import Loading from "../../Components/Shared/Loader/Loading";
 import { getAllProducts } from "../../redux/Apis/Products/getAllProductsApi";
 import ProductTable from "./Product-Components/ProductTable";
+import Loading from "../../Components/Shared/Loader/Loading";
 function Products() {
   const dispatch = useDispatch();
   const { totalProducts, productsError, productsLoading, allProducts } =

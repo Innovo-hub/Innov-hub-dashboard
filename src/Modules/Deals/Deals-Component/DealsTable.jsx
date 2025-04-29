@@ -8,7 +8,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Alert from "@mui/material/Alert";
-
+import { CiCircleCheck } from "react-icons/ci";
 function DealTable({ deals }) {
   const theme = useTheme();
 
@@ -36,7 +36,8 @@ function DealTable({ deals }) {
                   "Offer Deal",
                   "Category",
                   "Offer Money",
-                  "Approved"
+                  "Approved",
+                  "Action"
                 ].map((label) => (
                   <TableCell
                     key={label}
@@ -62,6 +63,7 @@ function DealTable({ deals }) {
                   <TableCell>{deal.CategoryName}</TableCell>
                   <TableCell>{deal.OfferMoney}</TableCell>
                   <TableCell>{deal.ApprovedAt}</TableCell>
+                  <TableCell><CiCircleCheck color="green" cursor='pointer' size='20'/></TableCell>
                 </TableRow>
               ))}
             </TableBody>
