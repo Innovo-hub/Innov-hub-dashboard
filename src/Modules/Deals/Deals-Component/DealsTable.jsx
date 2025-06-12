@@ -25,7 +25,7 @@ function DealTable({ deals }) {
       toast.success("Deal accepted successfully", {
         id: toastId,
       });
-      window.location.reload();
+      // window.location.reload();
     } catch (error) {
       toast.error("error accepting deal",{ id: toastId });
     }
