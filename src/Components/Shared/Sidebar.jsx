@@ -17,6 +17,7 @@ import { styled, useTheme } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
+import { RiSpamLine } from "react-icons/ri";
 import {
   CiDiscount1,
   CiHome,
@@ -80,6 +81,7 @@ const menuItems = [
   { text: "Deals", icon: <CiDiscount1 size={24} />, route: "/deals" },
   { text: "Reports", icon: <CiViewList size={24} />, route: "/reports" },
   { text: "Verifications", icon: <GoVerified size={24} />, route: "/verifications" },
+  { text: "Spam Detection", icon: <RiSpamLine size={24} />, route: "/spam" },
 ];
 
 export default function Sidebar() {
