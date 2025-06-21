@@ -2,7 +2,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import Sidebar, { Main } from "./Components/Shared/Sidebar";
 import Home from "./Modules/Home/Home";
 import { Box } from "@mui/material";
-import React, { useState } from "react";
+import  { useState } from "react";
 import Login from "./Modules/Auth/Login";
 import Users from "./Modules/Users/Users";
 import Products from "./Modules/Products/Products";
@@ -11,6 +11,7 @@ import Reports from "./Modules/Reports/Reports";
 import Verifications from "./Modules/Verifications/Verifications";
 import { Toaster } from "react-hot-toast";
 import PrivateRoute from "./Components/ProtectedRoutes";
+import Spam from "./Modules/Spam/Spam";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -36,6 +37,7 @@ function App() {
               <Route path="/deals" element={<PrivateRoute><Deals /></PrivateRoute>} />
               <Route path="/reports" element={<PrivateRoute><Reports /></PrivateRoute>} />
               <Route path="/verifications" element={<PrivateRoute><Verifications /></PrivateRoute>} />
+              <Route path="/spam" element={<PrivateRoute><Spam /></PrivateRoute>} />
             </Routes>
           </Main>
         </Box>
